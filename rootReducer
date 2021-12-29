@@ -1,0 +1,27 @@
+import {SET_AUTHENTICATED, SET_UNAUTHENTICATED, SET_USER_TYPE } from '../types'
+// This reducer interacts with the redux store
+const initState = {
+    authenticated: false,
+    userType: 'NULL'
+}
+
+const rootReducer = (state = initState, action)  => {
+    switch(action.type) {
+        case SET_AUTHENTICATED:
+            return {
+                ...state,
+                authenticated: true,
+            }
+        case SET_USER_TYPE:
+            return {
+                ...state,
+                userType: action.payload
+            }
+        case SET_UNAUTHENTICATED:
+            return initState;
+        default:
+            return state;
+    }
+}
+
+export default rootReducer;
